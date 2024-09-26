@@ -1,7 +1,3 @@
-Below is a comprehensive **`README.md`** file tailored towards a **Quantitative Trading** role. It outlines your project's purpose, provides a detailed explanation of how to set it up, includes a feature list, and reserves space for images and future improvements. You can customize it further by adding your own content and screenshots where indicated.
-
----
-
 # **Stock Analysis & Price Prediction Web Application**
 
 ![Stock Analysis](image-url-placeholder)
