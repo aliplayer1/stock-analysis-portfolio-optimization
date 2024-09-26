@@ -1,0 +1,109 @@
+/* results.css - Styling for results.html */
+
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Results Page Specific Styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.analyze-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.analyze-button:hover {
+    background-color: #0056b3;
+}
+
+/* Flexbox layout for results */
+.results-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.charts-row {
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px; /* Limit total width */
+}
+
+.bottom-row {
+    max-width: 1200px; /* Limit total width */
+    justify-content: space-between;
+}
+
+/* Chart containers */
+.chart-container {
+    width: 45%; /* Each chart takes up 45% of the row */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Metrics containers */
+.metrics-container {
+    width: 45%; /* Each metrics section takes up 45% of the row */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .results-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chart-container, .metrics-container {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .charts-row, .bottom-row {
+        max-width: 100%;
+    }
+}

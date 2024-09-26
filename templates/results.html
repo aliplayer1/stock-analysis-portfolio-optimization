@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis Results</title>
+    <link rel="stylesheet" href="/static/css/results.css"> <!-- Use results-specific CSS -->
+</head>
+<body>
+
+<div class="container">
+    <!-- Analyze another stock button at the top -->
+    <div class="button-container">
+        <a href="/" class="analyze-button">Analyze another stock</a>
+    </div>
+
+    <h1>Results for {{ ticker }}</h1>
+
+    <!-- Top row with the charts -->
+    <div class="results-grid charts-row">
+        <div class="chart-container">
+            {% if price_svg_base64 %}
+                <h2>Price Chart</h2>
+                {{ price_svg_base64 | safe }}  <!-- Price chart -->
+            {% endif %}
+        </div>
+
+        <div class="chart-container">
+            {% if cluster_svg_base64 %}
+                <h2>K-Means Clustering Chart</h2>
+                {{ cluster_svg_base64 | safe }}  <!-- Clustering chart -->
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Bottom row with descriptive stats and financial metrics -->
+    <div class="results-grid bottom-row">
+        <div class="metrics-container">
+            <h2>Descriptive Statistics</h2>
+            <ul>
+                <li><strong>Mean Price:</strong> {{ descriptive_stats.mean }} USD</li>
+                <li><strong>Median Price:</strong> {{ descriptive_stats.median }} USD</li>
+                <li><strong>Standard Deviation:</strong> {{ descriptive_stats.std_dev }} USD</li>
+                <li><strong>Variance:</strong> {{ descriptive_stats.variance }} USD²</li>
+                <li><strong>Minimum Price:</strong> {{ descriptive_stats.min }} USD</li>
+                <li><strong>Maximum Price:</strong> {{ descriptive_stats.max }} USD</li>
+            </ul>
+        </div>
+
+        <div class="metrics-container">
+            <h2>Financial Metrics</h2>
+            <ul>
+                <li><strong>Market Cap:</strong> {{ financial_metrics.marketCap }}</li>
+                <li><strong>Enterprise Value:</strong> {{ financial_metrics.enterpriseValue }}</li>
+                <li><strong>Trailing P/E:</strong> {{ financial_metrics.trailingPE }}</li>
+                <li><strong>Forward P/E:</strong> {{ financial_metrics.forwardPE }}</li>
+                <li><strong>Price-to-Book:</strong> {{ financial_metrics.priceToBook }}</li>
+                <li><strong>PEG Ratio:</strong> {{ financial_metrics.pegRatio }}</li>
+                <li><strong>Total Revenue:</strong> {{ financial_metrics.totalRevenue }}</li>
+                <li><strong>EBITDA:</strong> {{ financial_metrics.ebitda }}</li>
+                <li><strong>Total Cash:</strong> {{ financial_metrics.totalCash }}</li>
+                <li><strong>Total Debt:</strong> {{ financial_metrics.totalDebt }}</li>
+                <li><strong>Dividend Yield:</strong> {{ financial_metrics.dividendYield }}</li>
+                <li><strong>Beta:</strong> {{ financial_metrics.beta }}</li>
+                <li><strong>Trailing EPS:</strong> {{ financial_metrics.trailingEps }}</li>
+                <li><strong>52-Week High:</strong> {{ financial_metrics.fiftyTwoWeekHigh }}</li>
+                <li><strong>52-Week Low:</strong> {{ financial_metrics.fiftyTwoWeekLow }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
