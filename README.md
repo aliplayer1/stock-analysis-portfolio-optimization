@@ -1,7 +1,5 @@
 # **Stock Analysis & Price Prediction Web Application**
 
-![Stock Analysis](image-url-placeholder)
-
 ## **Overview**
 This project is a web-based stock analysis platform tailored for **Quantitative Trading** roles. It leverages various machine learning techniques and clustering algorithms to provide traders and quants with insightful price predictions, financial metrics, and statistical analysis for publicly traded stocks. 
 
@@ -24,7 +22,6 @@ The platform is built using **Flask**, with a modern user interface, and provide
 ---
 
 ## **Screenshots**
-> **Note**: Include screenshots showing the key features of your app like the prediction charts, clustering, financial metrics, and the main landing page.
 
 1. **Landing Page**  
    ![Landing Page](static/images/landing_page.png)
