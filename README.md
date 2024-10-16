@@ -1,4 +1,4 @@
-# **Stock Analysis & Price Prediction Web Application**
+# **Stock Analysis & Portfolio Optimization Web Application**
 
 ## **Overview**
 This project is a web-based stock analysis platform tailored for **Quantitative Trading** roles. It leverages various machine learning techniques and clustering algorithms to provide traders and quants with insightful price predictions, financial metrics, and statistical analysis for publicly traded stocks. 
