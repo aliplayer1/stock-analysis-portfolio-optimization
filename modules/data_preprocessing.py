@@ -1,4 +1,5 @@
 import pandas as pd
+from modules.inferential_statistics import InferentialStatistics
 
 def handle_missing_data(df):
     """
@@ -30,3 +31,27 @@ def create_price_movement_labels(df):
     df['Price Movement'] = (df['Close'].shift(-1) > df['Close']).astype(int)
     df.dropna(inplace=True)  # Drop rows with NaN values resulting from shift
     return df
+
+
+class DataPreprocessorWithInferentialStatistics:
+    def __init__(self, stock_data):
+        self.stock_data = stock_data
+        self.inferential_stats = None
+
+    def preprocess_data(self):
+        # Assuming existing preprocessing code
+        preprocessed_data = self.stock_data  # Placeholder for actual preprocessing
+        return preprocessed_data
+    
+    def add_inferential_statistics(self):
+        returns_data = self.preprocess_data()
+        self.inferential_stats = InferentialStatistics(returns_data)
+        
+        # Example of using inferential statistics
+        ci = self.inferential_stats.confidence_interval()
+        t_stat, p_val = self.inferential_stats.t_test_mean()
+        
+        return {
+            'confidence_interval': ci,
+            't_test': {'t_stat': t_stat, 'p_value': p_val}
+        }
