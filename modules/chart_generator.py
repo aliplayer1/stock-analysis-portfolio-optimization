@@ -1,10 +1,12 @@
 import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import matplotlib.dates as mdates
+import matplotlib.patches as mpatches
+import matplotlib.colors as mcolors
 import io
 import re
+matplotlib.use('Agg')
 
 def format_axis(ax):
     def y_axis_formatter(x, pos):
@@ -52,19 +54,34 @@ def generate_price_chart(stock_data, ticker):
     return svg_data
 
 def generate_clustering_chart(clustered_data, ticker):
+    num_clusters = clustered_data['Cluster'].nunique()
+
+    # Use a discrete colormap with a sufficient number of distinct colors
+    colors = plt.cm.get_cmap('tab20', num_clusters).colors
+    cmap = mcolors.ListedColormap(colors)
+
     img = io.BytesIO()
     plt.figure()
     ax = plt.gca()
-    scatter = plt.scatter(clustered_data.index, clustered_data['Close'], c=clustered_data['Cluster'], cmap='viridis')
+
+    scatter = plt.scatter(
+        clustered_data.index,
+        clustered_data['Close'],
+        c=clustered_data['Cluster'],
+        cmap=cmap
+    )
     plt.xlabel('Date')
     plt.ylabel('Price')
     plt.title(f'K-Means Clustering for {ticker.upper()}')
     plt.grid(True)
 
-    format_axis(ax)  # Make sure prices are not unnecessarily scaled
+    format_axis(ax)  # Ensure proper axis formatting
 
-    cbar = plt.colorbar(scatter)
-    cbar.set_label('Cluster')
+    # Create a legend for discrete clusters
+    handles = [mpatches.Patch(color=colors[i], label=f'Cluster {i}') for i in range(num_clusters)]
+    plt.legend(handles=handles, title='Clusters', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    plt.tight_layout()
 
     plt.savefig(img, format='svg')
     img.seek(0)

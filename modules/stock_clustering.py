@@ -10,16 +10,16 @@ def apply_kmeans(df, num_clusters):
     if 'Daily Return' not in df.columns:
         df['Daily Return'] = df['Close'].pct_change()
     
-    # Drop rows where 'Daily Return' is NaN or infinite
-    df.replace([np.inf, -np.inf], np.nan, inplace=True)  # Replace inf values with NaN
-    df.dropna(subset=['Daily Return'], inplace=True)  # Drop rows with NaN in 'Daily Return'
-
+    # Replace inf values with NaN and drop them
+    df.replace([np.inf, -np.inf], np.nan, inplace=True)
+    df.dropna(subset=['Daily Return'], inplace=True)
+    
     # Ensure we have enough data points
     if df.shape[0] < num_clusters:
         raise ValueError(f"Not enough data points to perform clustering with {num_clusters} clusters.")
-
-    # Apply KMeans clustering
-    model = KMeans(n_clusters=num_clusters)
+    
+    # Apply KMeans clustering with a fixed random state
+    model = KMeans(n_clusters=num_clusters, random_state=42)
     df['Cluster'] = model.fit_predict(df[['Daily Return']])
     
     return df, model

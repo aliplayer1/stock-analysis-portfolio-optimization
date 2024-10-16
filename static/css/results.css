@@ -7,20 +7,20 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Full viewport height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 100vh; /* Change to min-height to allow content to expand */
+    overflow-y: auto; /* Ensure the page can scroll */
+    box-sizing: border-box;
 }
 
-/* Results Page Specific Styles */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Align content to the top */
     width: 100%;
     padding: 20px;
+    box-sizing: border-box;
+    margin-top: 20px; /* Add margin to prevent top cutoff */
 }
 
 .button-container {
@@ -50,6 +50,7 @@ body {
     align-items: flex-start;
     width: 100%;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .charts-row {
@@ -71,6 +72,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Metrics containers */

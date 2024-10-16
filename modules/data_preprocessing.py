@@ -32,7 +32,6 @@ def create_price_movement_labels(df):
     df.dropna(inplace=True)  # Drop rows with NaN values resulting from shift
     return df
 
-
 class DataPreprocessorWithInferentialStatistics:
     def __init__(self, stock_data):
         self.stock_data = stock_data

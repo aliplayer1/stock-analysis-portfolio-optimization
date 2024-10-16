@@ -9,16 +9,19 @@ body {
     padding: 0;
     height: 100vh; /* Full viewport height */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    box-sizing: border-box;
 }
 
-/* Container and form styling */
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full screen height */
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px; /* Restrict container width */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .form-container {
@@ -26,9 +29,10 @@ body {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 100%; /* Form takes full width of the container */
     text-align: center;
 }
+
 
 h1 {
     color: #007bff;
