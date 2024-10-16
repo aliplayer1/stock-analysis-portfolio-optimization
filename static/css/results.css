@@ -1,28 +1,76 @@
-/* results.css - Styling for results.html */
-
-/* General Styling */
+/* General styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
     color: #333;
     margin: 0;
     padding: 0;
-    min-height: 100vh; /* Change to min-height to allow content to expand */
-    overflow-y: auto; /* Ensure the page can scroll */
+    min-height: 100vh;
+    overflow-y: auto;
     box-sizing: border-box;
 }
 
+/* Main container for results */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align content to the top */
+    justify-content: flex-start;
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
-    margin-top: 20px; /* Add margin to prevent top cutoff */
+    margin-top: 20px;
 }
 
+/* Grid layout for charts and statistics */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Space between grid items */
+    width: 100%;
+    max-width: 1200px; /* Limit total width */
+    margin-bottom: 30px;
+}
+
+/* Style for individual chart and metrics containers */
+.chart-container, .metrics-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+}
+
+/* Chart specific styling */
+.chart-container h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* Metrics container styling */
+.metrics-container h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Style for classification metrics */
+.metrics-container ul li {
+    margin-bottom: 5px;
+}
+
+/* Button styling */
 .button-container {
     text-align: center;
     margin-bottom: 20px;
@@ -43,69 +91,14 @@ body {
     background-color: #0056b3;
 }
 
-/* Flexbox layout for results */
-.results-grid {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    width: 100%;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-}
-
-.charts-row {
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px; /* Limit total width */
-}
-
-.bottom-row {
-    max-width: 1200px; /* Limit total width */
-    justify-content: space-between;
-}
-
-/* Chart containers */
-.chart-container {
-    width: 45%; /* Each chart takes up 45% of the row */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Metrics containers */
-.metrics-container {
-    width: 45%; /* Each metrics section takes up 45% of the row */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 10px;
-    font-size: 1.1em;
-}
-
-/* Responsive Design */
+/* Responsive Design for smaller screens */
 @media (max-width: 768px) {
     .results-grid {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
+        width: 100%;
     }
 
     .chart-container, .metrics-container {
-        width: 100%; /* Full width for smaller screens */
-    }
-
-    .charts-row, .bottom-row {
-        max-width: 100%;
+        width: 100%;
     }
 }

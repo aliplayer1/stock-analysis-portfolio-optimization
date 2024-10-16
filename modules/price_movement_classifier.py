@@ -17,11 +17,11 @@ def train_price_movement_classifier(stock_data):
     X = stock_data.drop(columns=['Price Movement', 'Close'])  # Exclude target and 'Close' from features
     y = stock_data['Price Movement']  # The target variable
 
-    # Split the data
+    # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # Train the classifier
-    classifier = DecisionTreeClassifier()
+    # Train the Decision Tree Classifier
+    classifier = DecisionTreeClassifier(random_state=42)
     classifier.fit(X_train, y_train)
 
     # Make predictions and evaluate

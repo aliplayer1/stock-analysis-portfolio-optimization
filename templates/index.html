@@ -17,25 +17,16 @@
                 <label for="ticker">Stock Ticker Symbol</label>
                 <input type="text" id="ticker" name="ticker" placeholder="e.g., AAPL, TSLA" required>
             </div>
-
+        
             <div class="form-group">
                 <label for="start_date">Start Date</label>
                 <input type="date" id="start_date" name="start_date" required>
             </div>
-
+        
             <div class="form-group">
                 <label for="end_date">End Date</label>
                 <input type="date" id="end_date" name="end_date" required>
-            </div>
-
-            <div class="form-group">
-                <label for="analysis_type">Select Analysis Type</label>
-                <select id="analysis_type" name="analysis_type">
-                    <option value="price_clustering">Price + K-Means Clustering</option>
-                    <option value="price_decision_tree">Price + Decision Tree Classifier</option>
-                </select>
-            </div>
-
+            </div>        
             <input type="submit" value="Analyze Stock" class="submit-btn">
         </form>
     </div>
