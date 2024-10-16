@@ -5,18 +5,28 @@ This project is a web-based stock analysis platform tailored for **Quantitative 
 
 The platform is built using **Flask**, with a modern user interface, and provides tools like **decision tree classifiers**, **K-means clustering**, and **financial data visualization**. The ultimate goal of this project is to offer a comprehensive toolkit for exploring, analyzing, and predicting stock price movements with a focus on applying quantitative strategies in real-world trading scenarios.
 
+---
+
 ## **Key Features**
 
-- **Stock Price Prediction**: Utilize **decision tree classifiers** to predict future stock price movements based on historical data.
-  
+- **Stock Price Prediction**: Utilize **Random Forest Classifier** and **Decision Tree Classifiers** to predict future stock price movements based on historical data.
+
+- **Technical Indicators**: Enhanced feature set by including technical indicators such as **Relative Strength Index (RSI)** and **Moving Averages (MA10 and MA50)** for more accurate predictions.
+
+- **Class Imbalance Handling**: Use **SMOTE** from the **imbalanced-learn** library to address class imbalance and improve model performance.
+
+- **Hyperparameter Tuning**: Applied **RandomizedSearchCV** for efficient hyperparameter optimization of machine learning models.
+
+- **Time Series Data Handling**: Ensured proper handling of time-series data by setting `shuffle=False` in `train_test_split` to maintain chronological order.
+
 - **K-Means Clustering**: Analyze stock price behavior and identify potential trends using unsupervised clustering techniques.
-  
+
 - **Financial Metrics**: View detailed financial metrics of a selected stock, including **Market Cap**, **Enterprise Value**, **P/E Ratios**, and more.
-  
+
 - **Descriptive Statistics**: Explore basic stock statistics like **mean**, **median**, **standard deviation**, and **variance** to understand stock price distribution.
-  
+
 - **Interactive Charts**: Visualize stock price history and clusters with dynamic charts powered by **Matplotlib**.
-  
+
 - **Responsive and User-Friendly UI**: A modern, responsive design that provides an intuitive user experience across all devices.
 
 ---

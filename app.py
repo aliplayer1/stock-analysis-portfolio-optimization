@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, flash
 from modules.data_fetcher import get_financial_data
 from modules.chart_generator import generate_price_chart, generate_clustering_chart
 from modules.price_movement_classifier import train_price_movement_classifier
+from modules.random_forest_classifier import train_random_forest_classifier
 from modules.statistics_calculator import calculate_descriptive_statistics, calculate_rolling_statistics
 from modules.stock_clustering import apply_kmeans  # Import clustering logic
 
@@ -41,7 +42,10 @@ def analyze():
         return render_template('index.html')
 
     # Train decision tree classifier and calculate its accuracy
-    classifier, accuracy, report = train_price_movement_classifier(stock_data)
+    classifier_dt, accuracy_dt, report_dt = train_price_movement_classifier(stock_data)
+
+    # Train random forest classifier and calculate its accuracy
+    classifier_rf, accuracy_rf, report_rf = train_random_forest_classifier(stock_data)
 
     return render_template(
         'results.html',
@@ -49,8 +53,10 @@ def analyze():
         financial_metrics=financial_metrics,
         price_svg_base64=price_svg,  # Price chart
         cluster_svg_base64=cluster_svg,  # K-Means Clustering chart
-        accuracy=accuracy,  # Classifier accuracy
-        classification_report=report,  # Classifier performance report
+        accuracy_dt=accuracy_dt,  # Decision Tree accuracy
+        classification_report_dt=report_dt,  # Decision Tree classification report
+        accuracy_rf=accuracy_rf,  # Random Forest accuracy
+        classification_report_rf=report_rf,  # Random Forest classification report
         descriptive_stats=descriptive_stats,
         rolling_stats=rolling_stats
     )

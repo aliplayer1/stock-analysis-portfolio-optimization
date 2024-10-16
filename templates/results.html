@@ -70,14 +70,23 @@
             <div class="metrics-container">
                 <h2>Decision Tree Classifier Results</h2>
                 <ul>
-                    <li><strong>Accuracy:</strong> {{ accuracy }}</li>
-                    <li><strong>Precision:</strong> {{ classification_report['1']['precision'] }}</li>
-                    <li><strong>Recall:</strong> {{ classification_report['1']['recall'] }}</li>
-                    <li><strong>F1-Score:</strong> {{ classification_report['1']['f1-score'] }}</li>
+                    <li><strong>Accuracy:</strong> {{ accuracy_dt }}</li>
+                    <li><strong>Precision:</strong> {{ classification_report_dt['1']['precision'] }}</li>
+                    <li><strong>Recall:</strong> {{ classification_report_dt['1']['recall'] }}</li>
+                    <li><strong>F1-Score:</strong> {{ classification_report_dt['1']['f1-score'] }}</li>
+                </ul>
+            </div>
+            <!-- Display Random Forest Classifier Results -->
+            <div class="metrics-container">
+                <h2>Random Forest Classifier Results</h2>
+                <ul>
+                    <li><strong>Accuracy:</strong> {{ accuracy_rf }}</li>
+                    <li><strong>Precision:</strong> {{ classification_report_rf['1']['precision'] }}</li>
+                    <li><strong>Recall:</strong> {{ classification_report_rf['1']['recall'] }}</li>
+                    <li><strong>F1-Score:</strong> {{ classification_report_rf['1']['f1-score'] }}</li>
                 </ul>
             </div>
         </div>
     </div>
-    
 </body>
 </html>

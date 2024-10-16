@@ -5,3 +5,5 @@ scikit-learn
 yfinance
 flask
 scipy
+ta
+imbalanced-learn
